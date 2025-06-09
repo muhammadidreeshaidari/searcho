@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ps">
+<head>
+  <meta charset="UTF-8">
+  <title>Searcho - سمارټ لټون ماشین</title>
+</head>
+<body style="text-align:center; font-family:sans-serif; margin-top:50px;">
+
+  <h1>Searcho</h1>
+  <p>هر ډول فایل، ویډیو، اپلکېشن یا فلم په انټرنټ کې ولټوئ!</p>
+
+  <form action="https://www.google.com/search" method="GET" target="_blank">
+    <input type="text" name="q" placeholder="لټون وکړئ..." style="width:60%; padding:10px;"><br><br>
+
+    <select onchange="this.form.q.value += ' site:' + this.value" style="padding:10px;">
+      <option value="">کټګوري یا سرچینه وټاکئ</option>
+      <option value="apkpure.com">اپلکېشنونه (APKPure)</option>
+      <option value="filehippo.com">کمپیوټري اپسونه (FileHippo)</option>
+      <option value="archive.org">فایلونه/کتابونه/فلمونه (Archive.org)</option>
+      <option value="youtube.com">ویډیوګانې (YouTube)</option>
+      <option value="unsplash.com">عکسونه (Unsplash)</option>
+    </select><br><br>
+
+    <button type="submit" style="padding:10px 20px;">پلټنه</button>
+  </form>
+
+</body>
+</html>
