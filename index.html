@@ -22,9 +22,10 @@
       margin: 30px;
     }
     input[type="text"] {
-      width: 50%;
+      width: 40%;
       padding: 10px;
       font-size: 16px;
+      margin: 5px;
     }
     .categories {
       display: flex;
@@ -48,6 +49,14 @@
       text-decoration: none;
       border-radius: 4px;
     }
+    form {
+      max-width: 400px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      margin-top: 40px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
     footer {
       background: #2c3e50;
       color: white;
@@ -57,38 +66,81 @@
     }
   </style>
 </head>
-<body>
-
-<header>
+<body><header>
   <h1>Searcho</h1>
   <p>اپلکېشېنونه او ګیمونه ومومئ او ډاونلوډ کړئ</p>
 </header>
 
 <div class="search-box">
-  <input type="text" placeholder="دلته لټون وکړئ...">
+  <input type="text" id="searchInput" placeholder="د اپ یا کتګورۍ نوم ولیکئ">
+  <button onclick="filterCards()">لټون</button>
 </div>
 
-<div class="categories">
-  <div class="card">
-    <h3>اپلکېشېنونه</h3>
-    <p>د ګټورو کمپیوټري اپسونو لړلیک.</p>
-    <a href="#" class="download-btn">ډاونلوډ</a>
+<div class="categories" id="cardContainer">
+  <div class="card" data-name="vlc" data-category="اپلکېشېنونه">
+    <h3>VLC Player</h3>
+    <p>د ویډیو چلولو غوره اپلکېشېن.</p>
+    <a href="https://example.com/vlc.exe" class="download-btn">ډاونلوډ</a>
   </div>
-  <div class="card">
-    <h3>ګیمونه</h3>
-    <p>نوې او مشهورې لوبې دلته پیدا کړئ.</p>
-    <a href="#" class="download-btn">ډاونلوډ</a>
+  <div class="card" data-name="pubg" data-category="ګیمونه">
+    <h3>PUBG</h3>
+    <p>مشهور آنلاین شوټینګ ګیم.</p>
+    <a href="https://example.com/pubg.apk" class="download-btn">ډاونلوډ</a>
   </div>
-  <div class="card">
-    <h3>نور</h3>
-    <p>نور مفید فایلونه او سرچینې.</p>
-    <a href="#" class="download-btn">ډاونلوډ</a>
+  <div class="card" data-name="winrar" data-category="نور">
+    <h3>WinRAR</h3>
+    <p>فایل کمپریس کولو لپاره اپلکېشېن.</p>
+    <a href="https://example.com/winrar.exe" class="download-btn">ډاونلوډ</a>
   </div>
-</div>
+</div><!-- Contact Us Form -->
+<form action="mailto:muhammadidrees1445@gmail.com" method="post" enctype="text/plain">
+  <h2>Contact Us</h2>
+  <label>نوم:</label><br>
+  <input type="text" name="name" required><br><br>
+  <label>ایمیل:</label><br>
+  <input type="email" name="email" required><br><br>
+  <label>پیغام:</label><br>
+  <textarea name="message" rows="4" required></textarea><br><br>
+  <input type="submit" value="ولیږئ">
+</form>
+
+<!-- Login Form -->
+<form>
+  <h2>Login</h2>
+  <label>نوم:</label><br>
+  <input type="text" required><br><br>
+  <label>رمز:</label><br>
+  <input type="password" required><br><br>
+  <label>هیواد:</label><br>
+  <select required>
+    <option>افغانستان</option>
+    <option>پاکستان</option>
+    <option>هندوستان</option>
+    <option>ایران</option>
+    <option>سعودي عرب</option>
+  </select><br><br>
+  <input type="submit" value="ننوزئ">
+</form>
 
 <footer>
   <p>&copy; 2025 Searcho | تماس: info@searcho.com</p>
 </footer>
+
+<script>
+  function filterCards() {
+    var input = document.getElementById('searchInput').value.toLowerCase();
+    var cards = document.getElementsByClassName('card');
+    for (var i = 0; i < cards.length; i++) {
+      var name = cards[i].getAttribute('data-name');
+      var category = cards[i].getAttribute('data-category');
+      if (name.includes(input) || category.includes(input)) {
+        cards[i].style.display = 'block';
+      } else {
+        cards[i].style.display = 'none';
+      }
+    }
+  }
+</script>
 
 </body>
 </html>
