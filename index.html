@@ -5,68 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Searcho - اپلکېشېنونه او ګیمونه</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: #2c3e50;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    .search-box {
-      text-align: center;
-      margin: 30px;
-    }
-    input[type="text"] {
-      width: 40%;
-      padding: 10px;
-      font-size: 16px;
-      margin: 5px;
-    }
-    .categories {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      margin: 20px;
-    }
-    .card {
-      background: white;
-      width: 30%;
-      margin: 10px;
-      padding: 20px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }
-    .download-btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 15px;
-      background: #27ae60;
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-    form {
-      max-width: 400px;
-      margin: auto;
-      background: white;
-      padding: 20px;
-      margin-top: 40px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }
-    footer {
-      background: #2c3e50;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      margin-top: 30px;
-    }
+    body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+    header { background: #2c3e50; color: white; padding: 20px; text-align: center; }
+    .search-box { text-align: center; margin: 30px; }
+    input[type="text"] { width: 40%; padding: 10px; font-size: 16px; margin: 5px; }
+    .categories { display: flex; justify-content: space-around; flex-wrap: wrap; margin: 20px; }
+    .card { background: white; width: 30%; margin: 10px; padding: 20px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+    .download-btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: #27ae60; color: white; text-decoration: none; border-radius: 4px; }
+    form { max-width: 400px; margin: auto; background: white; padding: 20px; margin-top: 40px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+    footer { background: #2c3e50; color: white; text-align: center; padding: 10px; margin-top: 30px; }
   </style>
 </head>
-<body><header>
+<body>
+
+<header>
   <h1>Searcho</h1>
   <p>اپلکېشېنونه او ګیمونه ومومئ او ډاونلوډ کړئ</p>
 </header>
@@ -92,7 +44,8 @@
     <p>فایل کمپریس کولو لپاره اپلکېشېن.</p>
     <a href="https://example.com/winrar.exe" class="download-btn">ډاونلوډ</a>
   </div>
-</div><!-- Contact Us Form -->
+</div>
+
 <form action="mailto:muhammadidrees1445@gmail.com" method="post" enctype="text/plain">
   <h2>Contact Us</h2>
   <label>نوم:</label><br>
@@ -104,7 +57,6 @@
   <input type="submit" value="ولیږئ">
 </form>
 
-<!-- Login Form -->
 <form>
   <h2>Login</h2>
   <label>نوم:</label><br>
@@ -131,8 +83,8 @@
     var input = document.getElementById('searchInput').value.toLowerCase();
     var cards = document.getElementsByClassName('card');
     for (var i = 0; i < cards.length; i++) {
-      var name = cards[i].getAttribute('data-name');
-      var category = cards[i].getAttribute('data-category');
+      var name = cards[i].getAttribute('data-name').toLowerCase();
+      var category = cards[i].getAttribute('data-category').toLowerCase();
       if (name.includes(input) || category.includes(input)) {
         cards[i].style.display = 'block';
       } else {
